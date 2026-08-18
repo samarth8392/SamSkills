@@ -1,11 +1,13 @@
 #!/usr/bin/env Rscript
 # Usage: Rscript 00_check_setup.R
-# Run this FIRST, before 01-04, especially if it's unknown whether R and its
+# Run this FIRST, before 01-05, especially if it's unknown whether R and its
 # packages are already set up in this environment. Checks every package the
-# four workflow scripts need, combined, in one shot — each of 01-04 also
+# five workflow scripts need, combined, in one shot — each of 01-05 also
 # checks its own subset before doing any work, but discovering a missing
 # package three scripts into the workflow (after already profiling and
 # exploring the data) is a worse experience than finding out up front.
+# (05_generate_report.R needs only readr/readxl, both already listed below
+# for 01, so it doesn't add anything new to this combined list.)
 #
 # This script cannot install R itself — if you're reading this, R already
 # ran it. If `Rscript` isn't found at all, R isn't installed; see SKILL.md's
