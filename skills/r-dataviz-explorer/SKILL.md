@@ -23,7 +23,25 @@ Turns a raw CSV/Excel file into publication-quality, colorblind-safe R visualiza
 
 ## Workflow
 
+Don't assume R and its packages are already set up in this environment — check first, especially in a
+fresh container or a machine this skill hasn't run on before. `which Rscript` (or `Rscript --version`)
+tells you if R itself exists:
+
+- **R not found at all:** this is a language runtime, not a package — installing it is a bigger, more
+  consequential action (a real download, needs a system package manager or admin rights, may need
+  compiler toolchains for building packages from source) than adding an R package. Tell the user R needs
+  to be installed rather than silently doing it, and give them the right command for their platform:
+  macOS → `brew install r`; Debian/Ubuntu → `sudo apt install r-base`; other → https://cran.r-project.org.
+- **R found:** run `Rscript scripts/00_check_setup.R` before step 1. It checks every package all four
+  workflow scripts need, combined, in one shot, and either confirms you're ready or prints the exact
+  `install.packages(...)` command for whatever's missing. Installing an R package (unlike installing R
+  itself) is the low-risk, ordinary kind of setup step — fine to run directly, the same way you'd run
+  `npm install` or `pip install` for a project that needs it.
+
 ```
+0. SETUP     -> Rscript scripts/00_check_setup.R
+               Confirms R + all required packages across 01-04 are present in
+               one combined check (see above) before starting the workflow.
 1. PROFILE   -> Rscript scripts/01_profile_data.R <file> <output_dir>
                Deduces column types/roles, missingness, cardinality.
                Prints a suggested plot + stat test per column. Also writes
@@ -119,6 +137,7 @@ Full palette hex codes and rules (why not red/green, viridis over jet, redundant
 
 ## Resources
 
+- `scripts/00_check_setup.R` — combined dependency check across all four workflow scripts; run this first
 - `scripts/01_profile_data.R` — column profiler (type/role/missingness/cardinality + suggested plot & test), writes `session_info.txt`
 - `scripts/02_explore_columns.R` — per-column diagnostic plots + routed stat tests + `exploration_log.txt` + `column_stats.csv`
 - `scripts/03_final_plots.R` — curated final colorblind-safe figure set with a combined summary panel + `final_plots_log.txt`
