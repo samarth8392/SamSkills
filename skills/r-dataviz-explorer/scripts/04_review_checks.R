@@ -111,8 +111,13 @@ if (file.exists(log_path)) {
     col_lines <- grep(pattern, all_log_lines, value = TRUE, perl = TRUE)
     plot_line <- grep("^\\[plot\\]", col_lines, value = TRUE)
     if (length(plot_line) == 0) next  # already flagged by Check 1, or a [skip]/[note]-only column
-    if (role == "continuous" && !any(grepl("Shapiro-Wilk|-> eda_", plot_line))) {
-      add_result("WARN", paste0(col, " is role 'continuous' but its log line doesn't look like a histogram/density entry — check it wasn't mis-routed"))
+    # Every [plot] line contains "-> eda_..." by filename convention, so that
+    # can't be used to positively confirm the continuous (histogram/density)
+    # branch ran — a legitimate small-n continuous column also skips the
+    # Shapiro-Wilk text. What IS diagnostic is the presence of the *other*
+    # branches' signature text bleeding into a continuous-role column's line.
+    if (role == "continuous" && any(grepl("unique values", plot_line))) {
+      add_result("WARN", paste0(col, " is role 'continuous' but its log line mentions 'unique values' — looks like it was mis-routed to the bar-chart branch"))
     }
     if (role %in% c("categorical_low", "categorical_high", "discrete_numeric") && !any(grepl("unique values", plot_line))) {
       add_result("WARN", paste0(col, " is role '", role, "' but its log line doesn't mention unique values — check it wasn't mis-routed to a histogram"))
@@ -139,6 +144,23 @@ if (!dir.exists(final_dir)) {
         add_result("PASS", paste0(basename(f), " (", sz, " bytes) exists and is not suspiciously small — still open it, file size is only a proxy"))
       }
     }
+  }
+}
+
+# --- Check 6: 03_final_plots.R's own warnings (dropped rows in the deliverable figures) ---
+final_log_path <- file.path(output_dir, "final_plots_log.txt")
+if (!file.exists(final_log_path)) {
+  add_result("WARN", "final_plots_log.txt not found — run 03_final_plots.R before this check, or ignore if not finalizing yet")
+} else {
+  final_warn_lines <- grep("^\\[warn\\]", readLines(final_log_path), value = TRUE)
+  if (length(final_warn_lines) == 0) {
+    add_result("PASS", "03_final_plots.R produced no warnings (no rows silently dropped from the final figures)")
+  } else {
+    # dedupe: the same warning fires once per individual panel save and again
+    # when patchwork re-renders that panel while building the combined
+    # summary, so report distinct warning messages, not raw line count.
+    n_distinct_warn <- length(unique(final_warn_lines))
+    add_result("WARN", paste0("final_plots_log.txt has ", n_distinct_warn, " distinct warning(s) from 03_final_plots.R — a final/*.png may be missing or misrepresenting rows (e.g. NAs silently excluded); open final_plots_log.txt"))
   }
 }
 

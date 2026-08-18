@@ -33,8 +33,10 @@ Turns a raw CSV/Excel file into publication-quality, colorblind-safe R visualiza
                column (if any) and which relationships matter.
 3. EXPLORE   -> Rscript scripts/02_explore_columns.R <file> <output_dir> scripts/cb_theme.R
                One diagnostic plot per column (including a count-over-time
-               line for datetime columns) + correlation matrix (Pearson or
-               Spearman, chosen by normality) if >=2 numeric columns. Routes
+               line for datetime columns, auto-binned to week/month once
+               daily resolution would just be noise) + correlation matrix
+               (Pearson or Spearman, chosen by normality) if >=2 numeric
+               columns. Routes
                each continuous-by-group comparison to Welch's t/Mann-Whitney
                (2 groups) or ANOVA+Tukey/Kruskal-Wallis+Dunn (3+ groups)
                based on per-group Shapiro-Wilk + Levene's test, and runs
@@ -59,14 +61,23 @@ Turns a raw CSV/Excel file into publication-quality, colorblind-safe R visualiza
                a Simpson's-paradox pairing doesn't go unnoticed), correlation
                heatmap (one triangle, diagonal dropped), group counts —
                styled with the colorblind-safe theme, saved at 300 DPI.
+               Also writes final_plots_log.txt — ggsave() warnings (e.g. NAs
+               dropped from a boxplot) fire at render time same as step 3's,
+               so they're captured the same way rather than only hitting
+               stderr.
 6. VERIFY    -> Rscript scripts/04_review_checks.R <file> <output_dir>
                Mechanical version of step 4's read-the-log-and-open-the-PNGs
                check: confirms every profiled column shows up in the log,
                flags high missingness and near-zero-variance columns, checks
-               each column's log line matches its role, and flags any final/
-               PNG small enough to be blank. Doesn't replace opening the
-               plots — it catches what's checkable in code so step 4 can
-               focus on judgment calls.
+               each column's log line matches its role (specifically: a
+               continuous column whose line carries the categorical branch's
+               "unique values" text — the "unique per column, not by naive
+               is.numeric()" contamination this skill exists to prevent),
+               flags any final/ PNG small enough to be blank, and surfaces
+               any warning final_plots_log.txt captured (a final figure may
+               be quietly missing rows). Doesn't replace opening the plots —
+               it catches what's checkable in code so step 4 can focus on
+               judgment calls.
 ```
 
 Steps 3-4 are a loop, not a straight line — re-run after every fix until the log and plots make sense. This mirrors what happened building this skill: the first pass plotted mtcars's binary `vs`/`am` columns as density curves, which was wrong and got caught by reading the log and looking at the plots (see `examples/mtcars_walkthrough.md`).
@@ -110,8 +121,8 @@ Full palette hex codes and rules (why not red/green, viridis over jet, redundant
 
 - `scripts/01_profile_data.R` — column profiler (type/role/missingness/cardinality + suggested plot & test), writes `session_info.txt`
 - `scripts/02_explore_columns.R` — per-column diagnostic plots + routed stat tests + `exploration_log.txt` + `column_stats.csv`
-- `scripts/03_final_plots.R` — curated final colorblind-safe figure set with a combined summary panel
-- `scripts/04_review_checks.R` — mechanical log-completeness/missingness/variance/blank-PNG checks, writes `review_checklist.txt`
+- `scripts/03_final_plots.R` — curated final colorblind-safe figure set with a combined summary panel + `final_plots_log.txt`
+- `scripts/04_review_checks.R` — mechanical log-completeness/missingness/variance/blank-PNG/dropped-row checks, writes `review_checklist.txt`
 - `scripts/cb_theme.R` — `theme_cb()`, `scale_*_cb_d()`/`scale_*_cb_c()`, `save_cb_plot()`
 - `references/column_to_plot_guide.md` — full classification + plot + test decision logic
 - `references/plot_gallery.md` — ggplot2 chart catalog organized by purpose
@@ -119,7 +130,7 @@ Full palette hex codes and rules (why not red/green, viridis over jet, redundant
 - `examples/iris_walkthrough.md` — worked example: 4 continuous + 1 categorical column
 - `examples/mtcars_walkthrough.md` — worked example: 11 numeric columns, includes the self-correction step
 
-`01`, `03`, and `04` require `readr`, `readxl`, `dplyr` (plus `purrr`/`tibble` for `01`, `forcats`/`ggplot2`/`patchwork` for `03`). `02` additionally requires `car` (Levene's test) and `rstatix` (Dunn's post-hoc test) on top of `ggplot2`/`forcats` — install with `install.packages(c("car", "rstatix"))` if missing; each script checks for its own required packages up front and stops with an explicit list rather than failing inside a bare `library()` call. Verified end-to-end against R 4.1.2 / ggplot2 3.5.1 / patchwork 1.1.2 and separately against R 4.3.3 / ggplot2 3.4.4 / patchwork 1.2.0 (where the combined summary panel renders directly, without the `tryCatch` fallback below) using the iris and mtcars datasets.
+`01`, `03`, and `04` require `readr`, `readxl`, `dplyr` (plus `purrr`/`tibble` for `01`, `forcats`/`ggplot2`/`patchwork` for `03`). `02` additionally requires `car` (Levene's test) and `rstatix` (Dunn's post-hoc test) on top of `ggplot2`/`forcats` — install with `install.packages(c("car", "rstatix"))` if missing; each script checks for its own required packages up front and stops with an explicit list rather than failing inside a bare `library()` call. Verified end-to-end against R 4.1.2 / ggplot2 3.5.1 / patchwork 1.1.2 and separately against R 4.3.3 / ggplot2 3.4.4 / patchwork 1.2.0 / car 3.1.2 / rstatix 0.7.2 (where the combined summary panel renders directly, without the `tryCatch` fallback below) using the iris, mtcars, and `.xlsx` inputs, plus degenerate inputs (1 column, 2 rows, tiny/uneven groups).
 
 ## Common Mistakes
 

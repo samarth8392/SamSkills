@@ -116,6 +116,27 @@ This is a version incompatibility between `patchwork` 1.1.2 and `ggplot2` 3.5.1'
 
 **A third issue, found by checking the output directory, not just the console log:** the first version of the `tryCatch` fix left a `final_summary.png` behind anyway — 0 bytes of useful content, just a blank white 3600x2700 image. `ggsave()` opens its PNG device before the guide-collection error fires, so `on.exit(dev.off())` still flushes an empty file even though the plot itself never rendered. A directory listing alone said "success" (`final_summary.png` exists); opening the file said otherwise. The fix: `unlink(summary_path)` inside the error handler, so a failed combine leaves no file rather than a misleading blank one. Lesson: checking that a script *produced a file* is not the same as checking that the file is *correct* — open the output. (`scripts/04_review_checks.R` now flags any `final/*.png` under 3KB as a blank-file suspect, for exactly this reason.)
 
+**A fourth issue, found by trying to break `04_review_checks.R` on purpose:** its role-vs-log check for `continuous` columns read `!any(grepl("Shapiro-Wilk|-> eda_", plot_line))`. Every `[plot]` line contains `-> eda_...` by filename convention — the check could never fire, on any dataset, mis-routed or not. Confirmed by editing `mpg`'s log line into the bar-chart form (`| 25 unique values`) while leaving its profiled role as `continuous`: `04` still reported 0 WARN. The fix flips the check around — a `continuous` column's line shouldn't contain the *other* branches' signature text ("unique values"), which is a condition that can actually be false:
+
+```r
+# before (vacuous — always true, since every [plot] line has "-> eda_"):
+if (role == "continuous" && !any(grepl("Shapiro-Wilk|-> eda_", plot_line)))
+# after (checks for cross-contamination from the categorical/discrete branch):
+if (role == "continuous" && any(grepl("unique values", plot_line)))
+```
+
+Two related gaps closed at the same time: `03_final_plots.R` picked up the same `withCallingHandlers()` warning capture `02` already had (it previously dropped its `ggsave()` warnings — e.g. rows excluded from a boxplot — to stderr with no log at all, so a final figure could quietly lose data with nothing recorded), and `04_review_checks.R` gained a Check 6 that reads `final_plots_log.txt` and flags any captured warning. Tagged `[note]`, not `[warn]`, though: the "known patchwork mismatch" message from the third issue above is expected and already self-explained, and tagging it identically to a real dropped-row warning would make Check 6 unable to tell "handled" from "look into this."
+
+## Step 6: Verify
+
+```
+Rscript scripts/04_review_checks.R mtcars.csv out_mtcars
+```
+
+```
+0 FAIL, 0 WARN, 7 PASS
+```
+
 ## Takeaways
 
 - `disp` and `cyl` are the most correlated pair (Spearman rho=0.93) — engine displacement scales directly with cylinder count, unsurprising but worth confirming rather than assuming.

@@ -29,6 +29,28 @@ source(theme_path)
 final_dir <- file.path(output_dir, "final")
 dir.create(final_dir, showWarnings = FALSE, recursive = TRUE)
 
+# Same warning-capture as 02_explore_columns.R, and for the same reason: a
+# dropped-row warning (e.g. NAs excluded from a boxplot/scatter) fires at
+# ggsave()/render time, not at ggplot() construction time, so it only ever
+# reaches stderr unless something routes it into a log file too. Without
+# this, the *deliverable* figures could silently drop rows with nothing
+# recorded anywhere.
+log_lines <- character(0)
+log_msg <- function(...) {
+  msg <- paste0(...)
+  log_lines <<- c(log_lines, msg)
+  message(msg)
+}
+with_warning_log <- function(expr, context) {
+  withCallingHandlers(
+    expr,
+    warning = function(w) {
+      log_msg("[warn] ", context, ": ", conditionMessage(w))
+      invokeRestart("muffleWarning")
+    }
+  )
+}
+
 read_any <- function(path) {
   ext <- tolower(tools::file_ext(path))
   if (ext == "csv") read_csv(path, show_col_types = FALSE) else read_excel(path)
@@ -97,8 +119,11 @@ if (length(plot_cols) >= 1) {
     if (nrow(ranked) >= 1) var1 <- ranked$column[1]
   }
   if (!is.na(group_col)) {
+    # fill uses the SAME fct_reorder() as x (not a plain factor()) so the
+    # legend lists groups in the same median-sorted order as the x-axis,
+    # not alphabetically.
     panelA <- ggplot(df, aes(x = fct_reorder(factor(.data[[group_col]]), .data[[var1]], .fun = median),
-                              y = .data[[var1]], fill = factor(.data[[group_col]]))) +
+                              y = .data[[var1]], fill = fct_reorder(factor(.data[[group_col]]), .data[[var1]], .fun = median))) +
       geom_boxplot(alpha = 0.85, outlier.shape = NA, width = 0.6) +
       geom_jitter(width = 0.12, alpha = 0.35, size = 1.2, color = "black") +
       scale_fill_cb_d() +
@@ -185,10 +210,12 @@ if (!is.na(group_col)) {
     theme(legend.position = "none")
 }
 
+panel_names <- c("Panel A", "Panel B", "Panel C", "Panel D")[!vapply(list(panelA, panelB, panelC, panelD), is.null, logical(1))]
 panels <- Filter(Negate(is.null), list(panelA, panelB, panelC, panelD))
 for (i in seq_along(panels)) {
   fname <- file.path(final_dir, sprintf("final_panel_%d.png", i))
-  save_cb_plot(panels[[i]], fname, width = 7, height = 5)
+  with_warning_log(save_cb_plot(panels[[i]], fname, width = 7, height = 5),
+                    paste0(panel_names[i], " (", basename(fname), ")"))
 }
 
 if (length(panels) >= 2) {
@@ -204,19 +231,29 @@ if (length(panels) >= 2) {
   if (!is.null(combined)) {
     summary_path <- file.path(final_dir, "final_summary.png")
     ok <- tryCatch({
-      save_cb_plot(combined, summary_path, width = 12, height = 9)
+      with_warning_log(save_cb_plot(combined, summary_path, width = 12, height = 9), "combined final_summary.png")
       TRUE
     }, error = function(e) {
       # ggsave() opens the PNG device before the guide-collection error fires,
       # so on.exit(dev.off()) still leaves a blank white file at summary_path.
       # Remove it — a missing file is a clearer signal than a blank "result".
       if (file.exists(summary_path)) unlink(summary_path)
-      message("[warn] Could not render combined final_summary.png (", conditionMessage(e), ").")
-      message("[warn] This is a known patchwork/ggplot2 guide-collection version mismatch — ",
+      # [note], not [warn]: this is a diagnosed, expected, non-data-affecting
+      # version incompatibility (see SKILL.md "Common Mistakes"), not a signal
+      # that a figure is wrong or lost data. 04_review_checks.R's Check 6
+      # only flags [warn] lines — tagging this as [warn] too would make a
+      # real "rows were silently dropped" signal indistinguishable from this
+      # already-explained, already-handled one.
+      log_msg("[note] Could not render combined final_summary.png (", conditionMessage(e), ").")
+      log_msg("[note] This is a known patchwork/ggplot2 guide-collection version mismatch — ",
               "individual panels above are unaffected. Try upgrading patchwork (>=1.2.0) to fix.")
       FALSE
     })
   }
 }
 
-message("\n", length(panels), " final panel(s) written to ", final_dir)
+log_path <- file.path(output_dir, "final_plots_log.txt")
+writeLines(log_lines, log_path)
+message("\n", length(panels), " final panel(s) written to ", final_dir,
+        if (exists("ok") && isTRUE(ok)) " (plus combined final_summary.png)" else "")
+message("Log written -> ", log_path)

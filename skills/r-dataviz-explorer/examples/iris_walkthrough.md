@@ -79,6 +79,20 @@ Panel C (below) is the correlation matrix, masked to one triangle with the diago
 
 Panel B (`Petal.Length` vs. `Petal.Width` scatter, not pictured here) reports "Spearman rho = 0.94 (within-group: 0.27 / 0.79 / 0.36)" in its subtitle — the overall correlation is much stronger than any single species' internal correlation, a mild Simpson's-paradox-flavored pattern worth noticing before quoting the pooled 0.94 as if it held within each species.
 
+`03_final_plots.R` also writes `out_iris/final_plots_log.txt`, the same way step 3 writes `exploration_log.txt` — a `ggsave()` warning (dropped rows, an `NA`-related re-leveling) fires at render time, so it's captured the same way in both steps rather than only reaching stderr. On this clean dataset it's empty.
+
+## Step 6: Verify
+
+```
+Rscript scripts/04_review_checks.R iris.csv out_iris
+```
+
+```
+0 FAIL, 0 WARN, 7 PASS
+```
+
+Every column is accounted for in the log, no missingness or near-zero-variance flags, all 4 `final/*.png` files are a healthy size, and `final_plots_log.txt` is clean. This mechanically confirms what Step 4 already established by eye.
+
 ## Takeaways
 
 - Species clearly separates on petal measurements (large Kruskal-Wallis chi-squared, tiny p-values) — worth calling out explicitly in any write-up rather than just handing over the plots.

@@ -204,16 +204,34 @@ for (i in seq_len(nrow(profile))) {
     # parsed the column as Date/POSIXct (classify_column()'s inherits() check
     # requires it) — so x here is guaranteed to be a real date/time vector,
     # not a string that merely looks like one.
-    ts <- df %>% filter(!is.na(.data[[col]])) %>% count(.data[[col]], name = "n")
-    names(ts)[1] <- "date"
+    x_valid <- x[!is.na(x)]
+    n_unique_dates <- dplyr::n_distinct(x_valid)
+    span_days <- if (length(x_valid) >= 2) as.numeric(difftime(max(x_valid), min(x_valid), units = "days")) else 0
+    # Raw daily (or finer) counts over a wide span are mostly 1s and 2s —
+    # a spiky, unreadable line. Bin into wider buckets once there's enough
+    # span/cardinality that daily resolution stops being informative; both
+    # cut.Date() and cut.POSIXt() (base R) support these breaks natively.
+    bin_by <- if (n_unique_dates > 60 || span_days > 366) "month" else if (n_unique_dates > 20 || span_days > 60) "week" else NA
+    if (!is.na(bin_by)) {
+      ts <- df %>% filter(!is.na(.data[[col]])) %>%
+        mutate(.bucket = cut(.data[[col]], breaks = bin_by)) %>%
+        count(.bucket, name = "n")
+      names(ts)[1] <- "date"
+      ts$date <- as.Date(as.character(ts$date))
+      bin_note <- paste0(" (binned by ", bin_by, ")")
+    } else {
+      ts <- df %>% filter(!is.na(.data[[col]])) %>% count(.data[[col]], name = "n")
+      names(ts)[1] <- "date"
+      bin_note <- ""
+    }
     p <- ggplot(ts, aes(x = date, y = n)) +
       geom_line(color = "#0072B2", linewidth = 0.8) +
       geom_point(color = "#0072B2", size = 1.6, alpha = 0.8) +
-      labs(title = paste("Count over time:", col), x = col, y = "Count") +
+      labs(title = paste0("Count over time: ", col, bin_note), x = col, y = "Count") +
       theme_cb()
     with_warning_log(ggsave(fname, p, width = 7, height = 4, dpi = 150, bg = "white"), paste("count-over-time of", col))
     log_msg("[plot] ", col, " -> ", basename(fname), " | datetime, range ",
-            format(min(x, na.rm = TRUE)), " to ", format(max(x, na.rm = TRUE)), missing_note)
+            format(min(x, na.rm = TRUE)), " to ", format(max(x, na.rm = TRUE)), bin_note, missing_note)
   } else if (role %in% c("categorical_low", "categorical_high", "discrete_numeric")) {
     # Low-cardinality numeric columns (e.g. a 0/1 flag or a 3-level count) plot
     # better as a bar chart of counts than as a density curve — a density
