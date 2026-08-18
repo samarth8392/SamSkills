@@ -1,8 +1,66 @@
+# SamSkills
+
+## Installation
+
+Each skill is a folder containing a `SKILL.md` file. Both Claude Code and Codex CLI discover skills by scanning a skills directory for that pattern, so installing a skill just means copying its folder into the right place.
+
+### Claude Code
+
+Install globally (available in every project):
+
+```bash
+mkdir -p ~/.claude/skills
+cp -R skills/* ~/.claude/skills/
+```
+
+Or install into a single project only (commit `.claude/skills/` to share with your team):
+
+```bash
+mkdir -p /path/to/your-project/.claude/skills
+cp -R skills/* /path/to/your-project/.claude/skills/
+```
+
+To install just one skill, copy its folder instead of the whole directory, e.g. `cp -R skills/pdf ~/.claude/skills/`.
+
+### Codex CLI
+
+Install globally:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R skills/* ~/.codex/skills/
+```
+
+Or install into a single project only (commit `.agents/skills/` to share with your team):
+
+```bash
+mkdir -p /path/to/your-project/.agents/skills
+cp -R skills/* /path/to/your-project/.agents/skills/
+```
+
+If a newly copied skill doesn't show up, restart Codex to force a rescan of its skills directories.
+
+## Using skills in the VS Code extension
+
+Both the Claude Code and Codex VS Code extensions embed the same CLI, so they read from the same skills directories described above — there's no separate install step for the extension.
+
+**Example: using the `pdf` skill in Claude Code's VS Code extension**
+
+1. Install the skill globally: `cp -R skills/pdf ~/.claude/skills/`
+2. Open the Claude Code panel in VS Code (install the extension from the Extensions view if you haven't already, search "Claude Code").
+3. In the chat, just ask for something the skill covers, e.g. "extract the tables from report.pdf" — Claude Code matches your request to the skill's trigger description and invokes it automatically. You can also reference it explicitly by name.
+
+**Example: using the `pdf` skill in Codex's VS Code extension**
+
+1. Install the skill globally: `cp -R skills/pdf ~/.codex/skills/`
+2. Open the Codex panel in VS Code (install the extension from the Extensions view, search "Codex").
+3. In the chat, type `/skills` to browse installed skills, or type `$pdf` to invoke the skill directly, then describe the task, e.g. "$pdf extract the tables from report.pdf".
+
 # Skills Inventory
 
-Generated from `skills/*/SKILL.md`.
+Generated from `skills.csv`
 
-Total skills: 62
+Total skills: 63
 
 | Skill | Description | Triggers |
 |---|---|---|
@@ -42,6 +100,7 @@ Total skills: 62
 | [peer-review](peer-review/SKILL.md) | Structured manuscript/grant review with checklist-based evaluation. Use when writing formal peer reviews with specific criteria methodology assessment, statistical validity, reporting standards compliance (CONSORT/STROBE), and constructive feedback. Best for actual review writing, manuscript revision. For evaluating claims/evidence quality use scientific-critical-thinking; for quantitative scoring frameworks use scholar-evaluation. | Use when writing formal peer reviews with specific criteria methodology assessment, statistical validity, reporting standards compliance (CONSORT/STROBE), and constructive feedback. Best for actual review writing, manuscript revision. For evaluating claims/evidence quality use scientific-critical-thinking; for quantitative scoring frameworks use scholar-evaluation. |
 | [pptx](pptx/SKILL.md) | Use this skill any time a .pptx file is involved in any way - as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions "deck," "slides," "presentation," or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill. | Trigger whenever the user mentions "deck," "slides," "presentation," or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill. |
 | [pptx-posters](pptx-posters/SKILL.md) | Create research posters using HTML/CSS that can be exported to PDF or PPTX. Use this skill ONLY when the user explicitly requests PowerPoint/PPTX poster format. For standard research posters, use latex-posters instead. This skill provides modern web-based poster design with responsive layouts and easy visual integration. | ONLY use this skill when:; User explicitly requests "PPTX poster", "PowerPoint poster", or "PPT poster"; User specifically asks for HTML-based poster; User needs to edit poster in PowerPoint after creation; LaTeX is not available or user requests non-LaTeX solution DO NOT use this skill when:; User asks for a "poster" without specifying format Use latex-posters; User asks for "research poster" or "conference poster" Use latex-posters; User mentions LaTeX, tikzposter, beamerposter, or baposter Use latex-posters |
+| [r-dataviz-explorer](r-dataviz-explorer/SKILL.md) | Use when given a CSV or Excel file and asked to explore, visualize, or run statistics on it in R — profiles every column, decides appropriate ggplot2 chart types and statistical tests per column, iteratively writes and runs R scripts while checking their own output, and produces final colorblind-safe tidyverse/ggplot2 figures. Technology-specific to R (tidyverse/ggplot2), not Python. | Use when given a CSV or Excel file and asked to explore, visualize, or run statistics on it in R — profiles every column, decides appropriate ggplot2 chart types and statistical tests per column, iteratively writes and runs R scripts while checking their own output, and produces final colorblind-safe tidyverse/ggplot2 figures. Technology-specific to R (tidyverse/ggplot2), not Python. |
 | [receiving-code-review](receiving-code-review/SKILL.md) | Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation | Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation |
 | [requesting-code-review](requesting-code-review/SKILL.md) | Use when completing tasks, implementing major features, or before merging to verify work meets requirements | Use when completing tasks, implementing major features, or before merging to verify work meets requirements |
 | [research-grants](research-grants/SKILL.md) | Write competitive research proposals for NSF, NIH, DOE, and DARPA. Agency-specific formatting, review criteria, budget preparation, broader impacts, significance statements, innovation narratives, and compliance with submission requirements. | This skill should be used when:; Writing research proposals for NSF, NIH, DOE, or DARPA programs; Preparing project descriptions, specific aims, or technical narratives; Developing broader impacts or significance statements; Creating research timelines and milestone plans; Preparing budget justifications and personnel allocation plans; Responding to program solicitations or funding announcements; Addressing reviewer comments in resubmissions; Planning multi-institutional collaborative proposals; Writing preliminary data or feasibility sections; Preparing biosketches, CVs, or facilities descriptions |
