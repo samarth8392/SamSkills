@@ -1,0 +1,4 @@
+interface:
+  display_name: "Post-review simplification"
+  short_description: "Reduce an overgrown peer review to essential revisions"
+  default_prompt: "Use $post-review-simplification to reread the manuscript and reduce the existing review to only essential, feasible revisions."
