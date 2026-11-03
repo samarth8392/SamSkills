@@ -1,0 +1,241 @@
+---
+title: "Data Visualization Explorer Report"
+format:
+  html:
+    toc: true
+    theme: flatly
+    embed-resources: true
+params:
+  data_path: "REQUIRED"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r load-helpers, include=FALSE}
+here_dir <- dirname(normalizePath(knitr::current_input()))
+source(file.path(here_dir, "profile_data.R"))
+source(file.path(here_dir, "plot_theme.R"))
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+```
+
+```{r load-data, include=FALSE}
+data_path <- params$data_path
+df <- load_dataset(data_path)
+profile <- profile_dataset(df)
+```
+
+## Dataset Overview
+
+```{r overview-table}
+overview <- data.frame(
+  Metric = c("Source file", "Rows", "Columns", "Total missing cells"),
+  Value = c(
+    basename(data_path),
+    nrow(df),
+    ncol(df),
+    sum(sapply(df, function(col) sum(is.na(col))))
+  )
+)
+knitr::kable(overview)
+```
+
+## Detected Column Types
+
+```{r type-table}
+type_table <- data.frame(
+  Column = profile$column,
+  Type = profile$type,
+  Missing = sapply(profile$stats, function(s) s$missing)
+)
+knitr::kable(type_table)
+```
+
+## Per-Column Univariate Plots
+
+```{r univariate-plots, results='asis'}
+for (i in seq_len(nrow(profile))) {
+  col_name <- profile$column[i]
+  col_type <- profile$type[i]
+  col_stats <- profile$stats[[i]]
+  cat(sprintf("\n### %s\n\n", col_name))
+
+  if (col_type == "identifier_text") {
+    cat(sprintf(
+      "`%s` looks like an identifier/text column (%d unique values out of %d rows) and is excluded from plotting.\n\n",
+      col_name, col_stats$n_unique, col_stats$n
+    ))
+    next
+  }
+
+  if (col_type %in% c("numeric_continuous", "numeric_discrete")) {
+    narrative <- sprintf(
+      "`%s` is %s, ranging from %.2f to %.2f (mean %.2f, median %.2f, %d outlier(s) by the IQR rule).",
+      col_name,
+      if (col_type == "numeric_discrete") "discrete numeric (count-like)" else "continuous numeric",
+      col_stats$min, col_stats$max, col_stats$mean, col_stats$median, col_stats$n_outliers
+    )
+    cat(narrative, "\n\n")
+
+    p_hist <- ggplot(df, aes(x = .data[[col_name]])) +
+      geom_histogram(aes(y = after_stat(density)), bins = 30,
+                      fill = okabe_ito_palette[1], color = "white", alpha = 0.9) +
+      geom_density(color = okabe_ito_palette[5], linewidth = 1) +
+      theme_dataviz_explorer() +
+      labs(title = paste("Distribution of", col_name), x = col_name, y = "Density")
+
+    p_box <- ggplot(df, aes(y = .data[[col_name]])) +
+      geom_boxplot(fill = okabe_ito_palette[2], alpha = 0.9) +
+      theme_dataviz_explorer() +
+      theme(axis.text.x = element_blank()) +
+      labs(title = paste("Boxplot of", col_name), y = col_name, x = NULL)
+
+    print(p_hist + p_box)
+    cat("\n\n")
+  } else if (col_type %in% c("categorical", "binary", "ordinal")) {
+    cat(sprintf(
+      "`%s` is a %s variable with %d level(s); most frequent value is `%s`.",
+      col_name, col_type, col_stats$n_levels, col_stats$mode
+    ), "\n\n")
+
+    plot_df <- as.data.frame(table(df[[col_name]]))
+    names(plot_df) <- c("level", "count")
+    if (col_type != "ordinal") {
+      plot_df <- plot_df[order(-plot_df$count), ]
+      plot_df$level <- factor(plot_df$level, levels = plot_df$level)
+    }
+
+    p_bar <- ggplot(plot_df, aes(x = level, y = count, fill = level)) +
+      geom_col() +
+      scale_fill_dataviz_discrete() +
+      theme_dataviz_explorer() +
+      theme(legend.position = "none") +
+      labs(title = paste("Counts of", col_name), x = col_name, y = "Count")
+
+    if (nrow(plot_df) > 8) {
+      p_bar <- p_bar + coord_flip()
+    }
+    print(p_bar)
+    cat("\n\n")
+  } else if (col_type == "datetime") {
+    cat(sprintf(
+      "`%s` spans %s to %s (%.0f days).",
+      col_name, as.character(col_stats$min), as.character(col_stats$max), col_stats$range_days
+    ), "\n\n")
+    p_time <- ggplot(df, aes(x = .data[[col_name]])) +
+      geom_histogram(bins = 30, fill = okabe_ito_palette[3], color = "white") +
+      theme_dataviz_explorer() +
+      labs(title = paste("Timeline of", col_name), x = col_name, y = "Count")
+    print(p_time)
+    cat("\n\n")
+  }
+}
+```
+
+## Relationships Between Columns
+
+```{r bivariate-plots, results='asis'}
+numeric_cols <- profile$column[profile$type %in% c("numeric_continuous", "numeric_discrete")]
+categorical_cols <- profile$column[profile$type %in% c("categorical", "binary", "ordinal")]
+
+MAX_NUMERIC_PAIRS_COLS <- 6  # cap to avoid combinatorial blow-up on wide datasets
+# knitr fixes fig.width/fig.height per chunk rather than per print() call, so a
+# scratch dir + ggsave() is used to give the pairwise scatter grid a height
+# that scales with its row count (avoids squashed/illegible panels).
+dyn_fig_dir <- file.path(here_dir, paste0(tools::file_path_sans_ext(basename(knitr::current_input())), "_dynfigs"))
+dir.create(dyn_fig_dir, showWarnings = FALSE)
+
+if (length(numeric_cols) >= 2) {
+  cat("### Correlation Among Numeric Columns\n\n")
+  numeric_subset <- numeric_cols[seq_len(min(length(numeric_cols), MAX_NUMERIC_PAIRS_COLS))]
+  cor_mat <- cor(df[, numeric_subset], use = "pairwise.complete.obs")
+  cor_df <- as.data.frame(as.table(cor_mat))
+  names(cor_df) <- c("Var1", "Var2", "Correlation")
+  p_heat <- ggplot(cor_df, aes(x = Var1, y = Var2, fill = Correlation)) +
+    geom_tile() +
+    geom_text(aes(label = ifelse(is.na(Correlation), "", sprintf("%.2f", Correlation))), color = "white", size = 3) +
+    scale_fill_dataviz_continuous() +
+    theme_dataviz_explorer() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    labs(title = "Correlation heatmap", x = NULL, y = NULL)
+  print(p_heat)
+  cat("\n\n")
+
+  cat("### Pairwise Scatter Plots\n\n")
+  pairs_list <- combn(numeric_subset, 2, simplify = FALSE)
+  plots <- lapply(pairs_list, function(pair) {
+    ggplot(df, aes(x = .data[[pair[1]]], y = .data[[pair[2]]])) +
+      geom_point(color = okabe_ito_palette[5], alpha = 0.6) +
+      geom_smooth(method = "loess", formula = y ~ x, color = okabe_ito_palette[6], se = FALSE) +
+      theme_dataviz_explorer() +
+      theme(plot.title = element_text(size = ggplot2::rel(0.75))) +
+      labs(title = paste(pair[1], "vs", pair[2]))
+  })
+  n_cols_grid <- min(3, length(plots))
+  n_rows_grid <- ceiling(length(plots) / n_cols_grid)
+  scatter_grid <- patchwork::wrap_plots(plots, ncol = n_cols_grid)
+  scatter_file <- file.path(dyn_fig_dir, "pairwise-scatter.png")
+  ggsave(scatter_file, plot = scatter_grid, width = 9,
+         height = max(3, n_rows_grid * 2.6), dpi = 96)
+  cat(sprintf("![Pairwise scatter plots](%s)\n\n", scatter_file))
+  cat("\n\n")
+}
+
+if (length(numeric_cols) >= 1 && length(categorical_cols) >= 1) {
+  cat("### Numeric Distributions by Category\n\n")
+  for (num_col in numeric_cols[seq_len(min(length(numeric_cols), 4))]) {
+    for (cat_col in categorical_cols[seq_len(min(length(categorical_cols), 2))]) {
+      cat(sprintf("#### %s by %s\n\n", num_col, cat_col))
+      # categorical/binary columns are often stored as numeric (e.g. 0/1) or
+      # character; coerce to factor so ggplot treats them as discrete groups
+      # rather than a single continuous axis.
+      plot_df <- df
+      plot_df[[cat_col]] <- factor(plot_df[[cat_col]])
+      p_violin <- ggplot(plot_df, aes(x = .data[[cat_col]], y = .data[[num_col]], fill = .data[[cat_col]])) +
+        geom_violin(alpha = 0.7) +
+        geom_boxplot(width = 0.15, fill = "white", outlier.shape = NA) +
+        scale_fill_dataviz_discrete() +
+        theme_dataviz_explorer() +
+        theme(legend.position = "none", axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(title = paste(num_col, "by", cat_col))
+      print(p_violin)
+      cat("\n\n")
+    }
+  }
+}
+
+if (length(categorical_cols) >= 2) {
+  cat("### Categorical vs Categorical\n\n")
+  cat_pairs <- combn(categorical_cols[seq_len(min(length(categorical_cols), 4))], 2, simplify = FALSE)
+  for (pair in cat_pairs) {
+    cat(sprintf("#### %s vs %s\n\n", pair[1], pair[2]))
+    # coerce both columns to factor for the same reason as above.
+    plot_df <- df
+    plot_df[[pair[1]]] <- factor(plot_df[[pair[1]]])
+    plot_df[[pair[2]]] <- factor(plot_df[[pair[2]]])
+    p_grouped <- ggplot(plot_df, aes(x = .data[[pair[1]]], fill = .data[[pair[2]]])) +
+      geom_bar(position = "dodge") +
+      scale_fill_dataviz_discrete() +
+      theme_dataviz_explorer() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      labs(title = paste(pair[1], "vs", pair[2]), y = "Count")
+    print(p_grouped)
+    cat("\n\n")
+  }
+}
+```
+
+## Summary
+
+```{r closing-summary, results='asis'}
+n_numeric <- length(numeric_cols)
+n_categorical <- length(categorical_cols)
+n_identifier <- sum(profile$type == "identifier_text")
+cat(sprintf(
+  "This dataset has **%d rows** and **%d columns**: %d numeric, %d categorical/binary/ordinal, and %d identifier/text column(s) excluded from plotting. Consider exploring outliers flagged above, and any strong correlations or grouped differences shown in the relationship plots.\n",
+  nrow(df), ncol(df), n_numeric, n_categorical, n_identifier
+))
+```

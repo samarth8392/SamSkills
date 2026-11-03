@@ -1,0 +1,152 @@
+{
+  "checkedOn": "2026-11-03",
+  "upstreamSkillsRepository": "https://github.com/Orchestra-Research/AI-Research-SKILLs",
+  "upstreamSkillsCommit": "773a52944ba4747a18bd4ae9ade53fff041adcbc",
+  "originalDocumentsFound": 0,
+  "distinctReplacementGuides": 17,
+  "repairedLinks": 23,
+  "guides": [
+    {
+      "title": "Designing a constitution",
+      "paths": [
+        "skills/constitutional-ai/references/constitution-design.md"
+      ],
+      "sha256": "6fe0d4682eb09026408f0b6369173a5a8c6ad991cbb53abbcaedf97c109ca720",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Choosing AI or human preference feedback",
+      "paths": [
+        "skills/constitutional-ai/references/rlaif-comparison.md"
+      ],
+      "sha256": "b74cb5e2c9fe2d6261e87d78317f1e6ed18a9b16720016041c45c5282a24f3c4",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Structured critique and revision",
+      "paths": [
+        "skills/constitutional-ai/references/cot-critique.md"
+      ],
+      "sha256": "73d90bb7132e72a28c8a9e5cba4df9c58b9d569c2d84a4b21875e038910936ed",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "FlashAttention algorithm and validation",
+      "paths": [
+        "skills/flash-attention/references/algorithm.md",
+        "skills/optimizing-attention-flash/references/algorithm.md"
+      ],
+      "sha256": "f9801391aed5fce25b9b39a75d421108bc6ed61cd91d402a86def048048f8d2e",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "FlashAttention advanced feature selection",
+      "paths": [
+        "skills/flash-attention/references/advanced-features.md",
+        "skills/optimizing-attention-flash/references/advanced-features.md"
+      ],
+      "sha256": "183329ffbed87e04553a3cbaa5555629541c9d9607cb69c22ab50f1f8598084b",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Selective state-space models",
+      "paths": [
+        "skills/mamba/references/selective-ssm.md",
+        "skills/mamba-architecture/references/selective-ssm.md"
+      ],
+      "sha256": "ad4a6239cb31645611670f7956c9141459acfad3ba83ac568b06b24f44fbed8c",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Mamba-2 architecture and practical setup",
+      "paths": [
+        "skills/mamba/references/mamba2-details.md",
+        "skills/mamba-architecture/references/mamba2-details.md"
+      ],
+      "sha256": "d6dd8dd7deccc24650840193ff80d50bd7d71f1f78ba6e88293e076623e75be3",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Measuring Mamba performance",
+      "paths": [
+        "skills/mamba/references/performance.md",
+        "skills/mamba-architecture/references/performance.md"
+      ],
+      "sha256": "cfb54f3aaed283e9bd8ef5027a567ea99270cbc83b031d555e47a06dfc59f11f",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Adapting Llama Guard categories",
+      "paths": [
+        "skills/llamaguard/references/custom-categories.md"
+      ],
+      "sha256": "c0d11e730330b87c4906f311945b1cf043116f6dd3a57549feb0218fff02d8aa",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Llama Guard benchmark interpretation",
+      "paths": [
+        "skills/llamaguard/references/benchmarks.md"
+      ],
+      "sha256": "51c8ba72f27fd80cc2f255a63eac6b0d870e9258bbe1e575c6136a5f432de447",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Deploying a Llama Guard classifier",
+      "paths": [
+        "skills/llamaguard/references/deployment.md"
+      ],
+      "sha256": "6fbc1c20507a25f8c616d0afb974c48c8495595814a73fde545602a740c63540",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Colang 2 flows and actions",
+      "paths": [
+        "skills/nemo-guardrails/references/colang-guide.md"
+      ],
+      "sha256": "d0580f420d124c1fee6a3833c060ab44b06cc2f2233657e66938afe22ac88139",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "NeMo Guardrails integration checklist",
+      "paths": [
+        "skills/nemo-guardrails/references/integrations.md"
+      ],
+      "sha256": "5c58df7875adb7ebeaaca2592a79f7457445b4f4ce74a7429b210357d35f952e",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "NeMo Guardrails latency and caching",
+      "paths": [
+        "skills/nemo-guardrails/references/performance.md"
+      ],
+      "sha256": "a5b012bff378f706b957eb187b30fa0e28320fc51f924cd9e4206e8df8ff9013",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Ray Train with Ray Tune",
+      "paths": [
+        "skills/ray-train/references/hyperparameter-tuning.md"
+      ],
+      "sha256": "74530d3eb56e010fc4e26c731277f6bcc2f657c6346f80bd0e584380a1bb3d96",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Custom Ray Train worker loops",
+      "paths": [
+        "skills/ray-train/references/custom-loops.md"
+      ],
+      "sha256": "961b1d5cfef54757f344cb05aa63ff3e9581894c7a9175a482b46ff89991cfb7",
+      "kind": "new-local-guide"
+    },
+    {
+      "title": "Multi-turn tool rollouts in verl",
+      "paths": [
+        "skills/verl/references/multi-turn.md",
+        "skills/verl-rl-training/references/multi-turn.md"
+      ],
+      "sha256": "64ebef65fe2202231cb3ccd21453e2e8601cf5797eff0fba63b41154d4b75d9b",
+      "kind": "new-local-guide"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+Built with Llama
+
+The documents in this folder are unmodified snapshots from Meta's PurpleLlama repository, Llama-Guard3, with the accompanying license and use policy preserved. No model weights are included.
+
+Llama 3.2 is licensed under the Llama 3.2 Community License, Copyright © Meta Platforms, Inc. All Rights Reserved.
+
+The license at the captured upstream 8B path is headed Llama 3.2, while the usage text describes Llama 3.1. This upstream mismatch is preserved rather than silently rewritten. Check the license accompanying the specific weights before obtaining or distributing a model.

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Clinical Note Writer"
+  short_description: "Draft behavioral-health notes for your EHR tabs"
+  default_prompt: "Use $write-clinical-note to draft all supported EHR tabs from this encounter, then ask about important gaps."
+
+policy:
+  allow_implicit_invocation: true

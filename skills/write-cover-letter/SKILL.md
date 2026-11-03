@@ -20,10 +20,10 @@ be concise, specific, technically accurate, persuasive, and grounded in
 evidence from the CV, portfolio site, and project history — not a paraphrase
 of the job ad.
 
-## Project Paths (fixed)
+## Project paths
 
-All paths are relative to the project root:
-`/Users/mathurs2/Documents/GitHub/cover_letters/ai_ml_eng`
+All paths are relative to the cover-letter project root supplied by the user.
+If no project root is supplied, use the current working directory.
 
 | Purpose | Path |
 |---|---|

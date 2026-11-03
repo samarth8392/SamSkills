@@ -2,3 +2,8 @@
 */.DS_Store
 *DS_Store
 skills/.DS_Store
+# Local catalog tooling and previews
+__pycache__/
+*.pyc
+.taste-skill/
+node_modules/

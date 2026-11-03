@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Find agent skills for research, engineering, machine learning and design. Search the SamSkills library by task, topic and agent compatibility.">
+  <title>SamSkills — Skill library</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to skills</a>
+<header><a class="brand" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h15v6H11v6h15v6H5v-6h9v-6H5z" fill="currentColor"/></svg>SamSkills</a><span class="scope">The agent skill library</span><a href="https://github.com/samarth8392/SamSkills">Repository ↗</a></header>
+<div class="layout">
+<aside aria-label="Library filters">
+  <div class="sidebar-title">Explore the library</div>
+  <label for="search">Find a skill</label>
+  <input id="search" type="search" placeholder="Try: review a paper" autocomplete="off" aria-keyshortcuts="/">
+  <p class="hint">Search names, topics & full instructions. Press / to search.</p>
+  <label for="platform">Agent compatibility</label><select id="platform"><option value="">All classifications</option></select>
+  <label for="category">Topic</label><select id="category"><option value="">All topics</option></select>
+  <label class="check"><input id="unique" type="checkbox"> One folder per skill name</label>
+  <button id="reset" class="secondary">Reset filters</button>
+  <div class="sidebar-note"><h2>Which agent?</h2><p>“Model-agnostic” means no agent-specific requirement was detected. Check the evidence and tool requirements before use.</p><p>Provider mentions are listed separately from agent compatibility.</p></div>
+  <a href="data/catalog.json" download>Download searchable JSON ↓</a>
+</aside>
+<main id="main" tabindex="-1">
+  <div class="title-row"><div><h1>Skill library</h1><p>Find the right instructions for your next task.</p></div><button id="about" class="secondary">How to use</button></div>
+  <div id="overview" class="overview" aria-label="Catalog summary"></div>
+  <div class="toolbar"><p id="status" role="status" aria-live="polite">Loading skills…</p><label for="sort">Sort <select id="sort"><option value="relevance">Relevance</option><option value="name">Name A–Z</option><option value="category">Topic</option></select></label></div>
+  <div id="results" class="results"></div>
+  <div class="paging"><button id="more" class="secondary" hidden>Show more skills</button></div>
+  <noscript><p>This searchable catalog needs JavaScript. You can also browse the skill folders and CSV in the <a href="https://github.com/samarth8392/SamSkills">repository</a>.</p></noscript>
+  <footer>Built from the skill files. Classifications are inferred, not runtime certifications.</footer>
+</main>
+</div>
+<dialog id="detail" aria-labelledby="detail-title"><div class="dialog-top"><span>Skill details</span><button id="close" aria-label="Close skill details">Close ×</button></div><div id="detail-content"></div></dialog>
+<dialog id="help" aria-labelledby="help-title"><div class="dialog-top"><span>Getting started</span><button id="close-help" aria-label="Close help">Close ×</button></div><h2 id="help-title">Choose a skill, then make it yours.</h2><p>Search for a task or technology. Open a skill to read its instructions, classification evidence, and duplicate-name notices.</p><h3>Install from your clone</h3><p>Copy the entire skill folder, including its scripts and references, into your agent’s skills directory. Each detail has a copyable project-local command. Choose one folder when several share a declared skill name.</p><h3>Read the requirements</h3><p>All skill folders are stored in the repository. Some workflows still need packages, MCP servers, API keys, models, or user-provided data. Structural findings and the provenance of locally repaired references are recorded in the audit.</p><p><a href="https://github.com/samarth8392/SamSkills/blob/main/docs/AUDIT.md">Read the repository audit ↗</a></p></dialog>
+</body>
+</html>

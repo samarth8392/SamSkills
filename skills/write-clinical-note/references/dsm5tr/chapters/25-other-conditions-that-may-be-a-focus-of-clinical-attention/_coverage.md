@@ -1,0 +1,8 @@
+# Coverage audit
+
+- Source read completely: `references/source/dsm5tr_text/25-other-conditions-that-may-be-a-focus-of-clinical-attention.md`, lines 1–783, PDF markers 1084–1103, read in two sequential chunks (1–400; 401–783).
+- Covered all text sections: chapter usage; suicidal behavior/NSSI; abuse/neglect coding; four child maltreatment types; four partner maltreatment types; nonpartner adult abuse; parent/caregiver, sibling, couple, and family-environment problems; education; occupation; housing; economics; social environment; legal circumstances; other psychosocial/personal/environmental problems; health-care access; personal history; counseling; all additional conditions (wandering, bereavement, phase of life, religion/spirituality, adult/youth antisocial behavior, nonadherence, weight, malingering, age-related cognitive decline, borderline intellectual functioning).
+- All categories appear in topic notes and overview; complete source-code/label table provided. Shared codes retain labels. Existing self-harm note revised to remove unsupported mandatory-history/automatic time-conversion claims and invented patient examples.
+- Unresolved source limitation: suicidal-behavior T14.91A/D and “6th character” wording reproduced as supplied; no external normalization attempted. Abuse T codes use source seventh-character convention.
+- Source contains short code-only entries and no duration/threshold rules for many contextual conditions; notes state those limits rather than inventing criteria.
+- No external billing update verification; codes represent the supplied DSM-5-TR edition. No patient facts supplied or inferred.

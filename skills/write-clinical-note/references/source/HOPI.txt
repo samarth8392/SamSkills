@@ -1,0 +1,12 @@
+History of Present Illness
+Patient details: Patient is a [age]-year-old [sex], [grade/occupation], living with [household], with a history of [relevant medical, developmental, or psychiatric history]. Presents with [accompanying person] for [chief complaint]. History obtained from [sources].
+Onset and stressor: Symptoms began [timeframe] in the context of [stressor/precipitant]. Initial symptoms were [first symptoms].
+Course: Over [timeframe], symptoms [worsened / stayed the same / fluctuated], with [new symptoms and when they appeared].
+Mood: Reports [depressed, irritable, anxious mood], [crying, hopelessness, guilt, loss of interest], present [most days / daily].
+Physical symptoms: Appetite [decreased/increased], with weight [loss/gain] of [X] over [timeframe]. Sleep: [initial/middle/late insomnia or hypersomnia], about [X] hours. Energy: [level]. Other: [headaches, GI complaints, psychomotor changes].
+Concentration and thinking: [Concentration, memory, decision-making, negative thoughts].
+Daily functioning: School/work: [grades, attendance, performance]. Home: [behavior, chores, family relationships]. Social: [withdrawal, peer relationships, activities].
+Safety: [Self-harm thoughts and behaviors: onset, frequency, method]. [SI: passive/active, plan, intent, attempts, access to means]. Denies/endorses [HI, psychosis, mania].
+Treatment, medications, and response: [Prior therapy, medications with dose and duration, adherence, side effects]. Response: [improved / partially improved / no improvement / worsened].
+Substance use: [Alcohol, nicotine/vaping, cannabis, other].
+Current status: On interview today, [affect, behavior, engagement].

@@ -1,0 +1,44 @@
+{
+  "write-clinical-note": {
+    "compatibility": "Model-agnostic",
+    "platforms": [],
+    "classificationNote": "SKILL.md explicitly says Codex metadata is optional; the Markdown workflow is portable."
+  },
+  "database-lookup": {
+    "compatibility": "Multi-platform",
+    "classificationNote": "Documents fetch alternatives for Claude Code, Gemini CLI, Codex CLI and other agents."
+  },
+  "hybrid-genomics-project-audit": {
+    "compatibility": "Model-agnostic",
+    "platforms": [],
+    "classificationNote": "Claude skill roots are examples of standard discovery paths, not a Claude requirement."
+  },
+  "implement": {
+    "compatibility": "Multi-platform",
+    "platforms": [
+      "Claude",
+      "Copilot",
+      "Generic"
+    ],
+    "classificationNote": "Explicitly routes to Claude Code, Copilot CLI, or generic reference instructions."
+  },
+  "bgpt-paper-search": {
+    "compatibility": "Model-agnostic",
+    "platforms": [],
+    "classificationNote": "Requires an MCP client and the BGPT service. Claude setup is an example, not an exclusive agent requirement."
+  },
+  "ml-paper-writing": {
+    "compatibility": "Model-agnostic",
+    "platforms": [],
+    "classificationNote": "Writing workflow is portable. Optional Exa setup includes Claude and Cursor/VS Code examples."
+  },
+  "liberty-combine": {
+    "category": "Life sciences & medicine"
+  },
+  "scientific-schematics": {
+    "classificationNote": "Agent-agnostic orchestration, but the documented generation/review workflow uses Google Gemini models via external services."
+  },
+  "infographics": {
+    "classificationNote": "Agent-agnostic orchestration, but the documented workflow uses Google Gemini and Perplexity services."
+  }
+}

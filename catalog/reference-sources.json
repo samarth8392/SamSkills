@@ -1,0 +1,332 @@
+{
+  "retrievedOn": "2026-11-03",
+  "note": "Pinned official documentation snapshots. Files are stored as plain text to preserve original source syntax; original relative links inside snapshots refer to their upstream repositories. Read the local replacement guides for self-contained instructions. Model weights and runtime dependencies are not included.",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/Dao-AILab/flash-attention/1dc8232fe209e2c48b1d3e677f26d68e4b856212/README.md",
+      "repository": "Dao-AILab/flash-attention",
+      "commit": "1dc8232fe209e2c48b1d3e677f26d68e4b856212",
+      "sourcePath": "README.md",
+      "paths": [
+        "skills/flash-attention/references/upstream/README.txt",
+        "skills/optimizing-attention-flash/references/upstream/README.txt"
+      ],
+      "sha256": "0dbaba56da1c8372d460956e2609bfb89acf8f3aadd65d132b1697d221069619",
+      "gitBlobSha": "2c9b7ac83a7d22edfd7ff97c55ae0185b894b6c5"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Dao-AILab/flash-attention/1dc8232fe209e2c48b1d3e677f26d68e4b856212/LICENSE",
+      "repository": "Dao-AILab/flash-attention",
+      "commit": "1dc8232fe209e2c48b1d3e677f26d68e4b856212",
+      "sourcePath": "LICENSE",
+      "paths": [
+        "skills/flash-attention/references/upstream/LICENSE.txt",
+        "skills/optimizing-attention-flash/references/upstream/LICENSE.txt"
+      ],
+      "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73",
+      "gitBlobSha": "5860e4b33f3d9d85fc636137c559331d51783a5b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/state-spaces/mamba/e9594ce1c732d97440f0332fdc43170a2294dbfa/README.md",
+      "repository": "state-spaces/mamba",
+      "commit": "e9594ce1c732d97440f0332fdc43170a2294dbfa",
+      "sourcePath": "README.md",
+      "paths": [
+        "skills/mamba/references/upstream/README.txt",
+        "skills/mamba-architecture/references/upstream/README.txt"
+      ],
+      "sha256": "46f3e7412d724fb9bedba32130b73df53625483ece8df92d29146e690434acb9",
+      "gitBlobSha": "2aa92d78987f18c325f74c447040cd21d44d5ed3"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/state-spaces/mamba/e9594ce1c732d97440f0332fdc43170a2294dbfa/LICENSE",
+      "repository": "state-spaces/mamba",
+      "commit": "e9594ce1c732d97440f0332fdc43170a2294dbfa",
+      "sourcePath": "LICENSE",
+      "paths": [
+        "skills/mamba/references/upstream/LICENSE.txt",
+        "skills/mamba-architecture/references/upstream/LICENSE.txt"
+      ],
+      "sha256": "760939b000194d04548ede6a857bbe735d1695d8422ec85955c8e2bd7f4b95c5",
+      "gitBlobSha": "f4abe24eb520fbb077753ae4f34bfaa43cb3b83f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/f64eebd53003a87d9c2d2a3a712133534c214c8d/Llama-Guard3/README.md",
+      "repository": "meta-llama/PurpleLlama",
+      "commit": "f64eebd53003a87d9c2d2a3a712133534c214c8d",
+      "sourcePath": "Llama-Guard3/README.md",
+      "paths": [
+        "skills/llamaguard/references/upstream/overview.txt"
+      ],
+      "sha256": "25d1a260c231356b100c81a90c3cac0639b37facf817497baf8bfc1cfc47fc72",
+      "gitBlobSha": "4ab5c239b04d3bf3a554c9e8ee0e5b9629e2c213"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/f64eebd53003a87d9c2d2a3a712133534c214c8d/Llama-Guard3/8B/README.md",
+      "repository": "meta-llama/PurpleLlama",
+      "commit": "f64eebd53003a87d9c2d2a3a712133534c214c8d",
+      "sourcePath": "Llama-Guard3/8B/README.md",
+      "paths": [
+        "skills/llamaguard/references/upstream/usage.txt"
+      ],
+      "sha256": "edae9a0a2e0a7314caab2d11d318970b0e6af378512d181087fad0e54128f38b",
+      "gitBlobSha": "e1b43a8d825449fe78d439f043832f2af9fb457f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/f64eebd53003a87d9c2d2a3a712133534c214c8d/Llama-Guard3/8B/MODEL_CARD.md",
+      "repository": "meta-llama/PurpleLlama",
+      "commit": "f64eebd53003a87d9c2d2a3a712133534c214c8d",
+      "sourcePath": "Llama-Guard3/8B/MODEL_CARD.md",
+      "paths": [
+        "skills/llamaguard/references/upstream/model-card.txt"
+      ],
+      "sha256": "bbd0d9e9d35023626472f67e278ba0840c5897f24c60926f10ec99d9df2c61ac",
+      "gitBlobSha": "4e2adc632daf7f9dd9bbc6a3f2061d4171f934c8"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/f64eebd53003a87d9c2d2a3a712133534c214c8d/Llama-Guard3/8B/LICENSE",
+      "repository": "meta-llama/PurpleLlama",
+      "commit": "f64eebd53003a87d9c2d2a3a712133534c214c8d",
+      "sourcePath": "Llama-Guard3/8B/LICENSE",
+      "paths": [
+        "skills/llamaguard/references/upstream/LICENSE.txt"
+      ],
+      "sha256": "8cc15535a8a34b41888f644b339a1a9eb428af793a4f5e24df58a3e5b1487d74",
+      "gitBlobSha": "83f13c3a5da0106959dd8cbee0eecfd4e6cef3d2"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/f64eebd53003a87d9c2d2a3a712133534c214c8d/Llama-Guard3/8B/USE_POLICY.md",
+      "repository": "meta-llama/PurpleLlama",
+      "commit": "f64eebd53003a87d9c2d2a3a712133534c214c8d",
+      "sourcePath": "Llama-Guard3/8B/USE_POLICY.md",
+      "paths": [
+        "skills/llamaguard/references/upstream/USE_POLICY.txt"
+      ],
+      "sha256": "40e2777d7faa6beaf98400654170f414d8ab29b921b5163ad4ea0a1d39894201",
+      "gitBlobSha": "ac3c5f21b9779e3da0677d6d3c587778fe3a331e"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/NeMo-Guardrails/dc046e4e1db894893214ffab487c35f451f5baad/docs/configure-rails/colang/colang-2/language-reference/introduction.mdx",
+      "repository": "NVIDIA/NeMo-Guardrails",
+      "commit": "dc046e4e1db894893214ffab487c35f451f5baad",
+      "sourcePath": "docs/configure-rails/colang/colang-2/language-reference/introduction.mdx",
+      "paths": [
+        "skills/nemo-guardrails/references/upstream/colang-introduction.txt"
+      ],
+      "sha256": "8f28f21579da7567278104c6b1a719785bc9df500ec6c9add10a538f0e818ee7",
+      "gitBlobSha": "82135a1287fe04c32923a25feca14351f4b08245"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/NeMo-Guardrails/dc046e4e1db894893214ffab487c35f451f5baad/docs/configure-rails/colang/colang-2/language-reference/defining-flows.mdx",
+      "repository": "NVIDIA/NeMo-Guardrails",
+      "commit": "dc046e4e1db894893214ffab487c35f451f5baad",
+      "sourcePath": "docs/configure-rails/colang/colang-2/language-reference/defining-flows.mdx",
+      "paths": [
+        "skills/nemo-guardrails/references/upstream/colang-flows.txt"
+      ],
+      "sha256": "fe3596bd956376806f7384314b78237cd9b95d615db8604f83833eb120517a33",
+      "gitBlobSha": "38ee863420b3ef48e271900a76a197d491370dd7"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/NeMo-Guardrails/dc046e4e1db894893214ffab487c35f451f5baad/docs/configure-rails/colang/colang-2/language-reference/python-actions.mdx",
+      "repository": "NVIDIA/NeMo-Guardrails",
+      "commit": "dc046e4e1db894893214ffab487c35f451f5baad",
+      "sourcePath": "docs/configure-rails/colang/colang-2/language-reference/python-actions.mdx",
+      "paths": [
+        "skills/nemo-guardrails/references/upstream/python-actions.txt"
+      ],
+      "sha256": "9a27e4c340a2435ec6095f5b36bf46e445c2fd52ddb81dc8ff7eadabc448865b",
+      "gitBlobSha": "31771781127d49bd68b584000dfa011c3d57f8c0"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/NeMo-Guardrails/dc046e4e1db894893214ffab487c35f451f5baad/docs/configure-rails/guardrail-catalog/community/llama-guard.mdx",
+      "repository": "NVIDIA/NeMo-Guardrails",
+      "commit": "dc046e4e1db894893214ffab487c35f451f5baad",
+      "sourcePath": "docs/configure-rails/guardrail-catalog/community/llama-guard.mdx",
+      "paths": [
+        "skills/nemo-guardrails/references/upstream/llama-guard.txt"
+      ],
+      "sha256": "a31d9e6b8dc6555daf5f5c000a3f04f9344da6fa1c3e262133c77e90dc2b5d16",
+      "gitBlobSha": "8ac8502bb0fe039c3c0838bf5d1d5574bf7ace55"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/NeMo-Guardrails/dc046e4e1db894893214ffab487c35f451f5baad/docs/configure-rails/guardrail-catalog/community/presidio.mdx",
+      "repository": "NVIDIA/NeMo-Guardrails",
+      "commit": "dc046e4e1db894893214ffab487c35f451f5baad",
+      "sourcePath": "docs/configure-rails/guardrail-catalog/community/presidio.mdx",
+      "paths": [
+        "skills/nemo-guardrails/references/upstream/presidio.txt"
+      ],
+      "sha256": "0333f5cf8cf6e9d4fb6131f719f66063210d9575c85f90820d21fbba17889984",
+      "gitBlobSha": "18feb522264e7f169fe1a367868b5bd0f2674d10"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/NeMo-Guardrails/dc046e4e1db894893214ffab487c35f451f5baad/docs/configure-rails/caching/index.mdx",
+      "repository": "NVIDIA/NeMo-Guardrails",
+      "commit": "dc046e4e1db894893214ffab487c35f451f5baad",
+      "sourcePath": "docs/configure-rails/caching/index.mdx",
+      "paths": [
+        "skills/nemo-guardrails/references/upstream/caching.txt"
+      ],
+      "sha256": "6b275ab0b0d933879b5f8ad1a320a7564437550e1c7e1aba40dbd0b0a36e3f89",
+      "gitBlobSha": "3b116afcb61dcac88deeb60ffc3a0b5cd22de0ae"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/NeMo-Guardrails/dc046e4e1db894893214ffab487c35f451f5baad/LICENSE.md",
+      "repository": "NVIDIA/NeMo-Guardrails",
+      "commit": "dc046e4e1db894893214ffab487c35f451f5baad",
+      "sourcePath": "LICENSE.md",
+      "paths": [
+        "skills/nemo-guardrails/references/upstream/LICENSE.txt"
+      ],
+      "sha256": "7c137905972e6199e4120716851edf334e211008c0ef3693eb269578b8a2ac2a",
+      "gitBlobSha": "966ad04e1438bb3a6c53a7f7ac057de476d7d297"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/NeMo-Guardrails/dc046e4e1db894893214ffab487c35f451f5baad/LICENSE-Apache-2.0.txt",
+      "repository": "NVIDIA/NeMo-Guardrails",
+      "commit": "dc046e4e1db894893214ffab487c35f451f5baad",
+      "sourcePath": "LICENSE-Apache-2.0.txt",
+      "paths": [
+        "skills/nemo-guardrails/references/upstream/LICENSE-Apache-2.0.txt"
+      ],
+      "sha256": "8959de7365d75093261c9b0f6a7f0a2cdaee023bddea3db8f8581628fefd1f72",
+      "gitBlobSha": "08017da874514efe78614402cab4cdbe34546a52"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ray-project/ray/5d31e57a6d6298df3d8dc47a09326a9c4f3d1dcf/doc/source/train/user-guides/hyperparameter-optimization.md",
+      "repository": "ray-project/ray",
+      "commit": "5d31e57a6d6298df3d8dc47a09326a9c4f3d1dcf",
+      "sourcePath": "doc/source/train/user-guides/hyperparameter-optimization.md",
+      "paths": [
+        "skills/ray-train/references/upstream/hyperparameter-optimization.txt"
+      ],
+      "sha256": "83a348edaf378de28c613521755ddc7d118110fb32c0f16029d6cf1300549d68",
+      "gitBlobSha": "99ca8991561c718fc8950af050ee283ea208c1fd"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ray-project/ray/5d31e57a6d6298df3d8dc47a09326a9c4f3d1dcf/doc/source/train/getting-started-pytorch.md",
+      "repository": "ray-project/ray",
+      "commit": "5d31e57a6d6298df3d8dc47a09326a9c4f3d1dcf",
+      "sourcePath": "doc/source/train/getting-started-pytorch.md",
+      "paths": [
+        "skills/ray-train/references/upstream/pytorch-training.txt"
+      ],
+      "sha256": "3db073b1921e379aaaddf08c5a4ad8df1bb5bfa602e587f486912abe74f49a87",
+      "gitBlobSha": "8649a8163bcc56416472bd873112fb9f5830e76d"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ray-project/ray/5d31e57a6d6298df3d8dc47a09326a9c4f3d1dcf/doc/source/train/api/train-loop.md",
+      "repository": "ray-project/ray",
+      "commit": "5d31e57a6d6298df3d8dc47a09326a9c4f3d1dcf",
+      "sourcePath": "doc/source/train/api/train-loop.md",
+      "paths": [
+        "skills/ray-train/references/upstream/train-loop.txt"
+      ],
+      "sha256": "3ec1c29e5d145a972532314558ea47e77c8e8ab37fa41e171bbb2e7fa5d49ea0",
+      "gitBlobSha": "b016ad5077287e310f2388f02bb36f99a218f2bb"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ray-project/ray/5d31e57a6d6298df3d8dc47a09326a9c4f3d1dcf/LICENSE",
+      "repository": "ray-project/ray",
+      "commit": "5d31e57a6d6298df3d8dc47a09326a9c4f3d1dcf",
+      "sourcePath": "LICENSE",
+      "paths": [
+        "skills/ray-train/references/upstream/LICENSE.txt"
+      ],
+      "sha256": "cc68f9a408c8edf33c900f645846a7d8388a23e4b92a4a9fce7499c372b2acc0",
+      "gitBlobSha": "c247a8575b35eea321f584a57a67cfa93db6d654"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/verl-project/verl/184687bb3b7c601627eed3660283ecabd2bb75ed/docs/sglang_multiturn/multiturn.rst",
+      "repository": "verl-project/verl",
+      "commit": "184687bb3b7c601627eed3660283ecabd2bb75ed",
+      "sourcePath": "docs/sglang_multiturn/multiturn.rst",
+      "paths": [
+        "skills/verl/references/upstream/multiturn.txt",
+        "skills/verl-rl-training/references/upstream/multiturn.txt"
+      ],
+      "sha256": "6a7a35e6fc6cfc3a7f72d9f53aad05c20d3b1fb34ec1a78dbbe6dc8d5441480f",
+      "gitBlobSha": "b40418b1ad559ffd2013f68754c84464337c23a8"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/verl-project/verl/184687bb3b7c601627eed3660283ecabd2bb75ed/docs/sglang_multiturn/search_tool_example.rst",
+      "repository": "verl-project/verl",
+      "commit": "184687bb3b7c601627eed3660283ecabd2bb75ed",
+      "sourcePath": "docs/sglang_multiturn/search_tool_example.rst",
+      "paths": [
+        "skills/verl/references/upstream/search-tool-example.txt",
+        "skills/verl-rl-training/references/upstream/search-tool-example.txt"
+      ],
+      "sha256": "42f2837e59cff1831336fc6feabdf50113ce5b9c8fecbc04d526cc0c87e3bbe1",
+      "gitBlobSha": "13dfeebdfe3489c66ea45150bccce5edfb9d7ab3"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/verl-project/verl/184687bb3b7c601627eed3660283ecabd2bb75ed/LICENSE",
+      "repository": "verl-project/verl",
+      "commit": "184687bb3b7c601627eed3660283ecabd2bb75ed",
+      "sourcePath": "LICENSE",
+      "paths": [
+        "skills/verl/references/upstream/LICENSE.txt",
+        "skills/verl-rl-training/references/upstream/LICENSE.txt"
+      ],
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "gitBlobSha": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2212.08073v1",
+      "version": "2212.08073v1",
+      "authors": "Yuntao Bai et al.",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "paths": [
+        "skills/constitutional-ai/references/upstream/constitutional-ai-bai-2022.pdf"
+      ],
+      "sha256": "9a456a07ad346e3372f9867d346f69f5b0f68b4c65f060aca0b8a13fa9d98e83"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2309.00267v3",
+      "version": "2309.00267v3",
+      "authors": "Harrison Lee et al.",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "paths": [
+        "skills/constitutional-ai/references/upstream/rlaif-lee-2024.pdf"
+      ],
+      "sha256": "2fe7b8b57b81bfc7f5b8086f152ed3861ae839c2000fc2ab2dfed559f121164a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ray-project/ray/5d31e57a6d6298df3d8dc47a09326a9c4f3d1dcf/doc/source/train/doc_code/train_tune_interop.py",
+      "repository": "ray-project/ray",
+      "commit": "5d31e57a6d6298df3d8dc47a09326a9c4f3d1dcf",
+      "sourcePath": "doc/source/train/doc_code/train_tune_interop.py",
+      "paths": [
+        "skills/ray-train/references/upstream/train_tune_interop.py.txt"
+      ],
+      "sha256": "caf2930ac41c10e1f775474cf0a5a054c66e8e80b8b991b55d96ca543ad0f354",
+      "gitBlobSha": "51e311d79c9df5f820037d3da5377a907788c93b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/NeMo-Guardrails/dc046e4e1db894893214ffab487c35f451f5baad/docs/configure-rails/caching/model-memory-cache.mdx",
+      "repository": "NVIDIA/NeMo-Guardrails",
+      "commit": "dc046e4e1db894893214ffab487c35f451f5baad",
+      "sourcePath": "docs/configure-rails/caching/model-memory-cache.mdx",
+      "paths": [
+        "skills/nemo-guardrails/references/upstream/model-memory-cache.txt"
+      ],
+      "sha256": "ca59b6148e6d9d3d5235059151638d5a54faed958653d634541ebed5571d625a",
+      "gitBlobSha": "1df95faa93c0657551ce3b4c7cd86cceec900866"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/NeMo-Guardrails/dc046e4e1db894893214ffab487c35f451f5baad/docs/configure-rails/caching/kv-cache-reuse.mdx",
+      "repository": "NVIDIA/NeMo-Guardrails",
+      "commit": "dc046e4e1db894893214ffab487c35f451f5baad",
+      "sourcePath": "docs/configure-rails/caching/kv-cache-reuse.mdx",
+      "paths": [
+        "skills/nemo-guardrails/references/upstream/kv-cache-reuse.txt"
+      ],
+      "sha256": "9a8560a161c7c967b7e482752dad0337d5abfe3be419986d55be350ea0efff5a",
+      "gitBlobSha": "adc870313a59138205c319f64e02ed7afb2d526e"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+# Supplement: Section I Opening
+
+Extracted from the local PDF with pypdf; PDF page numbers are 1-based. Image-only content is not transcribed.
+
+<!-- pdf page 92 -->
+SECTION I
+DSM-5 Basics
+Introduction
+Use of the Manual
+Cautionary Statement for Forensic Use of DSM-5
+2
+3
+
+<!-- pdf page 93 -->
+This section
+ provides a basic orientation to the purpose, structure, content, and use
+of DSM-5. The Introduction begins with a description of the DSM-5 and DSM-5-TR
+revision processes, followed by an overview of the DSM-5 organizational structure (e.g.,
+regrouping of disorders, harmonization with ICD-11) and key conceptual issues, such as
+the definition of a mental disorder, categorical and dimensional approaches to
+diagnosis, cultural and social structural issues, and sex and gender differences. Use of
+the Manual features information to facilitate the use of DSM-5, such as a brief overview
+of the diagnostic process, use of subtypes and specifiers, other specified and
+unspecified mental disorder categories, use of clinical judgment, coding and recording
+procedures, notes about terminology, descriptions of the types of information in the
+DSM-5-TR text, and online enhancements. The section concludes with a Cautionary
+Statement for Forensic Use of DSM-5.
+4

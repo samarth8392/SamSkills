@@ -1,0 +1,16 @@
+Offline research sources (unchanged PDFs)
+
+Constitutional AI: Harmlessness from AI Feedback.
+Yuntao Bai et al. (2022), arXiv:2212.08073v1.
+Source: https://arxiv.org/abs/2212.08073v1
+File: constitutional-ai-bai-2022.pdf
+
+RLAIF vs. RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback.
+Harrison Lee et al. (2024 revision), arXiv:2309.00267v3.
+Source: https://arxiv.org/abs/2309.00267v3
+File: rlaif-lee-2024.pdf
+
+Both papers were listed by arXiv under Creative Commons Attribution 4.0 International:
+https://creativecommons.org/licenses/by/4.0/
+The PDFs are redistributed unchanged; local reference guides are separate, newly written summaries and proposed workflows. The authors do not endorse this repository.
+Retrieved 2026-11-03. Checksums are recorded in catalog/reference-sources.json at the repository root.

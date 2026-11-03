@@ -1,3 +1,18 @@
+---
+name: maryland-driver-quiz-builder
+description: >
+  Use when asked to build a practice test / quiz app for the Maryland driver's
+  license knowledge test from the official MDOT MVA Driver's Manual PDF.
+  Extracts text and sign/diagram images from the PDF, generates a verified
+  question bank (50-75 questions, including image-based sign questions), and
+  builds a single-page HTML quiz app with instant feedback and explanations.
+  Zero tolerance for hallucinated facts — every question must be traceable to
+  a specific page/section of the source PDF.
+  Trigger phrases: "build the driver's license quiz", "$md-driver-quiz",
+  "make the practice test from the manual".
+author: user
+---
+
 # SKILL: maryland-driver-quiz-builder
 
 ## Metadata (for skills.csv / agents/openai.yaml)

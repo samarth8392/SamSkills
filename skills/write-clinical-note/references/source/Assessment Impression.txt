@@ -1,0 +1,18 @@
+Assessment Impression 
+Assessment/Impression
+[Age]-year-old [sex] with [duration] history of [primary symptoms] beginning in the context of [precipitant/stressor]. Presents with [mood symptoms], [neurovegetative symptoms: sleep, appetite, weight, energy, concentration], and [functional impact: school, social, family]. [Self-harm/SI history: onset, frequency, plan, intent, attempts]. [Relevant co-occurring history: therapies, medical, developmental].
+On interview, patient was [affect/behavior, e.g., irritable, guarded, cooperative, tearful] and [engagement, e.g., disclosed SI / denied SI]. Presentation is consistent with [syndrome].
+Diagnosis: [Diagnosis, specifier, severity] ([ICD-10 code]). [Additional codes].
+Suicide risk: [Low / Moderate / Elevated / High]. Risk factors: [list]. Protective factors: [list].
+Differentials: R/O [diagnosis 1], [diagnosis 2], [diagnosis 3]. [Key data needed to rule in or out].
+Problem status: [Problem]: [improved / well controlled / resolving / resolved] OR [inadequately controlled / worsening / failing to change as expected], based on [evidence].
+Safety plan: Reviewed with [patient/family]: [crisis contacts: 988, 911, ER], [means restriction: sharps, meds, firearms], [supervision]. [Patient/family] verbalized understanding.
+Disposition: [Outpatient / ER / inpatient / IOP / PHP], based on [rationale]. Follow-up in [timeframe].
+
+Problem status phrasing:
+• Improving: "[Problem] is improved, with [evidence, e.g., better mood and sleep, PHQ-A down from X to Y]."
+• Well controlled: "[Problem] remains well controlled on [treatment], with no new symptoms."
+• Resolved: "[Problem] has resolved; [treatment] can be [continued/tapered]."
+• Inadequately controlled: "[Problem] is inadequately controlled, with ongoing [symptoms] despite [treatment]."
+• Worsening: "[Problem] is worsening, with new [symptoms, e.g., SI, attempt]."
+• Not changing as expected: "[Problem] is failing to change as expected after [duration] of [treatment]; plan to [adjust]."

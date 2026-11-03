@@ -1,0 +1,156 @@
+Clear and organized documentation is a must for behavioral health providers. Progress notes and therapy notes are a key part of keeping your treatment strategy on track, yet documentation is a challenge to keep up with.
+
+One way to strengthen productivity is through the use of note templates. A mental health progress note template or therapy note template helps you expedite the documentation process and write high-quality notes that better capture your patients’ treatment journey.
+
+A mental health progress note template gives clinicians a repeatable structure for documenting symptoms, interventions, responses, progress, and next steps. Prebuilt and customizable templates support more consistent documentation across solo, group, in-person, and virtual mental health practices without replacing the clinician’s judgment or individual observations.
+
+Read on to learn more about best practices for note templates and how to get the most from this feature within an EHR.
+
+The Role of Note-Taking in Behavioral Health
+Notes serve several purposes within a behavioral health environment. They’re meant to benefit the clinician and the patient.
+
+Better clinical care. Progress notes help chart the overall course of your client’s condition, as well as how they respond to treatment, while therapy notes help you recall important details and insights related to each client’s situation. Both types of notes help you deliver better care.
+Get paid by insurance companies. Many insurance companies require the use of progress notes before they will pay on a claim.
+Security for clinicians. Should your treatment strategy ever be questioned, your notes may be vital to demonstrating the quality of care you delivered to your client. This can protect you if someone seeks to claim that your treatment was in some way negligent or harmful.
+Communication with other providers. Progress notes allow you to communicate with other healthcare professionals who may also be involved in your client’s care. Progress notes can even be shared with a client’s family members given the proper authorization. Notes help maintain a common standard of documentation that other providers can easily reference and understand.
+Progress notes and therapy notes aren’t interchangeable. Progress notes are part of the clinical record and document information such as the services provided, the client’s response, progress toward treatment goals, and next steps.
+
+Therapy notes, sometimes called psychotherapy notes, are the clinician’s separate personal observations. Learn more about the differences between therapy notes and progress notes.
+
+Challenges of Traditional Note-Taking
+One of the primary reasons to use a mental health progress note template is to make your work more efficient. Traditionally, clinicians have often found note-taking to be one of the most challenging aspects of their job. It’s time-consuming to document every treatment session, particularly if you keep therapy notes in addition to progress notes.
+
+Whether on paper or digital, taking too many notes in-session can complicate provider-patient rapport. Some clients interpret note-taking as the clinician being distracted, and may wonder whether you’re truly listening.
+
+This can be frustrating to a client, even alienating. It may strike you like a catch-22 situation: you want to take notes to better understand your patient’s situation, but the notes make them feel that you aren’t really hearing them.
+
+Some providers attempt to ease both the time commitment and the strain on patient-provider rapport by taking notes in shorthand. This can speed the process and help jog memory later without detailed word-for-word documentation. Other clinicians try to simply remember as much detail as possible and write all notes after the session, though this can be tricky if you see patients back-to-back.
+
+Virtual care can create another layer of documentation friction. Clinicians may be managing the video session, monitoring engagement, reviewing the treatment plan, and preparing a progress note at the same time. When the telehealth platform, note template, and patient record are disconnected, documentation may require more switching between systems or additional work after the appointment.
+
+Then, there are security concerns. Pen-and-paper notes must be kept at a secure physical location that others can’t access, such as a locked filing cabinet in a clinician’s personal office. Notes kept in electronic format need similar protections, such as password authorization or encryption.
+
+
+What is a Mental Health Progress Note Template?
+Using a template for note-taking is one way to save time on documentation, with the added benefit of creating a common format for communication between providers. Notes give you a framework to start from and help you determine what information to include. You simply fill in the specifics about each session.
+
+A progress note template is a structured framework that prompts the clinician to document the information needed for a particular encounter. Depending on the practice and type of care, that may include the client’s reported concerns, observable information, clinical assessment, interventions used, response to treatment, progress toward goals, and plans for follow-up.
+
+One example of a popular mental health progress note template is the SOAP notes strategy. SOAP stands for:
+
+Subjective: A section for subjective information about your client’s feelings, thoughts, and goals for therapy.
+Objective: A section focused on factual data like the client’s appearance and behavior, or relevant medical details.
+Assessment: You assess the subjective and objective information. This can include diagnosis, evaluating the severity of the condition, and the client’s response to treatment.
+Plan: Next steps for treatment.
+Many other basic templates exist, some more complex than others, such as DAP (Data, Assessment, Plan) and BIRP (Behavior, Intervention, Response, Plan) notes.
+
+Templates make it easier to decide which information to include and how to organize it. They can speed up the note-taking process and ensure that you don’t leave out critical information.
+
+The right format depends on the clinician’s role, specialty, documentation requirements, and preferred workflow. A therapist may prefer SOAP, DAP, BIRP, narrative, or another customized structure, while a psychiatrist or higher-acuity program may need different fields and clinical prompts.
+
+The rise of EHRs in behavioral health care has removed one more step from the note-taking process by offering pre-built templates that can be filled out and stored within the EHR itself. A HIPAA-compliant EHR also addresses security concerns, as the notes will be protected by the same system that houses patient records. Prebuilt templates aren’t limited to progress notes and therapy notes; you can create them for intake assessments, treatment planning, and other features.
+
+Customizing Templates for Individualized Care
+It’s important that the note templates within an EHR be customizable. You may have specific documentation needs or preferences that a standardized template doesn’t address; without the ability to tweak it, the template won’t be very useful to your work.
+
+Some examples of valuable customization features include:
+
+Checkboxes, allowing you to record info with just a click
+Carry-over options from previous notes, so you can pull forward specific info and narratives from previous documents
+Auto-generating narrative features to speed your narrative documentation while allowing the clinician to review and edit the resulting content
+Additional fields to add
+The ability to rearrange the order of fields
+Templates for different specialties, appointment types, levels of care, and documentation formats
+Required fields or prompts that help clinicians follow a shared documentation standard
+Customization may seem like an afterthought, but it’s critical to a practice’s success with note-taking software. For example: Mount Diablo Unified School District Counseling Services needed to follow documentation standards of the local health department, which changed frequently.
+
+Adjustable templates allowed the school counselors to easily meet these changing requirements. In other cases, private practices like The Mental Mediator use customization to meet the needs of many different therapists within one system, allowing every provider to use notes the way they prefer.
+
+Customization makes the EHR note-taking process easier and more accessible for everyone.
+
+How to Standardize Progress Notes Across Clinicians
+Standardizing progress notes doesn’t require every clinician to write identical documentation. It means giving the team a shared structure for capturing required information while leaving room for clinical judgment, specialty-specific needs, and each provider’s documentation style.
+
+Practices can support greater consistency by:
+
+Selecting a core set of approved progress note formats
+Defining which information should be included in every note
+Using shared terminology for goals, interventions, and progress
+Creating templates for different services and appointment types
+Training clinicians on documentation expectations
+Reviewing templates periodically as clinical or operational needs change
+Using an integrated EHR so notes, treatment plans, diagnoses, and assessments remain connected
+For a growing virtual mental health practice, this structure can reduce variation as clinicians, programs, and appointment volumes increase. Standardized templates can also make onboarding easier because new providers have a clearer starting point for documentation.
+
+Progress Note Templates for Virtual and Telehealth Practices
+Progress note templates can be particularly valuable for telehealth because they create a familiar documentation workflow regardless of where the clinician or client is located. The clinical content of the note still needs to reflect the individual encounter, but the template can help clinicians capture the same core information across virtual and in-person visits.
+
+Benefits of using a progress note template for telehealth patients may include:
+
+A consistent structure across virtual and in-person appointments
+Less time spent deciding how to organize each note
+Prompts for documenting interventions, responses, and progress
+A clearer connection between the note and the treatment plan
+Secure storage within the client’s electronic health record
+Greater consistency across clinicians in a growing virtual practice
+When the telehealth visit and documentation tools are connected, the clinician can focus on the session and complete the note without transferring information between unrelated platforms. The note should still be reviewed carefully to confirm that it accurately represents the encounter.
+
+Using AI with Progress Note Templates
+Templates can also provide the structure for AI-assisted documentation. Rather than beginning with a blank page after every session, clinicians can use AI-supported tools to create an organized draft in the appropriate format and then review, revise, and sign it using their clinical judgment.
+
+Valant’s AI Notes Assist works within the behavioral health EHR and supports structured formats such as SOAP, DAP, BIRP, narrative, and custom templates. It can support both in-person and telehealth documentation, while the clinician remains responsible for reviewing, editing, and finalizing the note.
+
+AI assistance shouldn’t replace individualized documentation or clinical decision-making. Its value is in helping organize session content within an established template so clinicians can spend less time drafting from scratch and more time confirming that the record is complete and accurate.
+
+How Progress Notes Differ for Solo and Group Therapy
+Solo and group therapy progress notes share many of the same fundamentals, but the documentation workflow isn’t identical.
+
+Solo Therapy Progress Notes
+A solo therapy note focuses on one client’s presentation, interventions, response, progress toward individual treatment goals, and next steps. The entire session record is specific to that client.
+
+Group Therapy Progress Notes
+Group therapy documentation may include shared information about the session, such as its topic, therapeutic approach, activities, or overall objective. Each participant still needs client-specific documentation that reflects their attendance, participation, response, progress, and any individual clinical information relevant to their care.
+
+A template designed for group therapy can reduce repetitive work by supporting common session information while preserving space for individualized entries. Practices should make sure the workflow doesn’t turn one general group description into identical documentation for every participant.
+
+Compliance and Legal Considerations
+Privacy is of the utmost importance when it comes to your notes. Therapy notes fall under the category of protected health information (PHI), and progress notes should only be available to those with proper authorization, such as other providers and family members. HIPAA laws govern how you must protect these documents.
+
+Having your notes program fully integrated within a HIPAA-compliant EHR system can solve this problem handily. An EHR with strong privacy features and encryption will protect these documents from unlawful exposure.
+
+Compliance is another area where note templates may be helpful. Therapy notes and progress notes should contain separate information. Progress notes document the client’s condition, services, response, and progress in the clinical record, while therapy notes are separate personal notes for the provider. Templates can help you abide by this separation by dictating which information goes in which note.
+
+Virtual-care documentation should be created and stored through the same secure clinical workflow as in-person documentation. Avoid moving sensitive notes into unapproved personal documents, consumer transcription tools, or other disconnected systems simply because the appointment occurred online.
+
+You can learn more about HIPAA regulations here.
+
+Could Mental Health Progress Note Templates Help Your Practice?
+Prebuilt and custom note templates can significantly enhance your productivity and documentation quality. They can help you overcome many of the traditional pitfalls of note-taking and make your work go faster. When written within an EHR solution, they can support secure, consistent documentation and help practices protect sensitive client information.
+
+The strongest approach combines prebuilt structure with enough customization to support different clinicians, specialties, appointment types, and care settings. For virtual and growing practices, keeping those templates connected to telehealth, treatment plans, assessments, and the broader clinical record can reduce fragmented workflows and make documentation easier to manage at scale.
+
+Valant gives behavioral health clinicians multiple ways to approach documentation, including customizable templates and AI-assisted structured drafts within the EHR. Explore AI Notes Assist to see how connected documentation tools can help your team spend less time starting from scratch.
+
+If you’d like to know how note templates could help your practice, contact Valant today for a live, personalized demonstration.
+
+Frequently Asked Questions About Mental Health Progress Note Templates
+What should a virtual mental health progress note template include?
+A virtual mental health progress note template should capture the same core clinical information as an in-person note, including the client’s presentation, interventions, response, progress, and next steps. The practice may also include fields relevant to its telehealth workflow, provided those details support clinical, operational, or documentation requirements.
+
+How can I standardize progress notes across my practice?
+Use shared templates that define the core information every clinician should document while preserving flexibility for individualized care. Consistent formats, terminology, training, and EHR workflows can reduce variation without forcing every provider to write notes in exactly the same way.
+
+What kind of progress note template works for a virtual mental health practice?
+A virtual practice benefits from templates that are customizable, securely stored in the EHR, and connected to telehealth, treatment plans, diagnoses, and other clinical information. The template should support the practice’s preferred formats, such as SOAP, DAP, BIRP, narrative, or custom documentation.
+
+What are the benefits of using a progress note template for telehealth patients?
+Templates help clinicians organize virtual-session documentation consistently and spend less time deciding how to structure each note. They can also support continuity between in-person and telehealth care, reduce missing information, and make documentation easier to standardize across providers.
+
+How can progress note templates support a growing virtual mental health practice?
+Progress note templates give growing practices a repeatable documentation framework that can be used across clinicians, specialties, and appointment types. Customization and shared standards can improve consistency while reducing the need for each provider to build documentation workflows from scratch.
+
+What is an example of a mental health progress note template?
+SOAP is a common example, with sections for Subjective information, Objective observations, Assessment, and Plan. Other widely used structures include DAP and BIRP, and many behavioral health practices create custom templates based on their clinical and operational needs.
+
+How are progress notes different for solo and group therapy?
+Solo therapy notes focus entirely on one client’s session, while group therapy documentation may combine shared session information with separate client-specific entries. Each group participant’s record should still reflect that individual’s participation, response, progress, and relevant clinical needs.

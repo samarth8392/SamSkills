@@ -1,0 +1,13 @@
+# Website design and validation
+
+The library answers: **Which skill fits my task and agent?** Details answer: **What does it require, and how do I install it?**
+
+The interface began with the design-taste-frontend skill's **Framed sheet** direction, seed `515067695`. The visual revision keeps that frame and introduces a forest-green masthead, a Georgia serif wordmark, pale green surfaces, and individually framed skill rows. Larger titles, quieter author credits, and subtle hover borders make the collection easier to scan. System fonts keep it self-contained; the serif is reserved for the wordmark. The detail dialogs and favicon share the new palette. Search behavior, controls, links, and catalog data are unchanged. The distinguishing element is the skill's classification evidence alongside original instructions and duplicate-name alternatives. All entries and counts come from repository files; there is no sample content.
+
+The initial build was inspected in headless Chrome at 1440, 768, and 390 pixels: zero automated design failures or warnings, with screenshots reviewed at all three widths. The page uses a readable list rather than a card grid. On phones, filters become a two-column form above the list. No horizontal overflow was observed in the inspected screenshots. The source style lint also reported zero failures or warnings.
+
+The catalog has seven Node tests and eight Python tests covering structural checks, classification, nested symlink materialization, source preservation, cycles, and broken links. Run the commands in the README to repeat them. The catalog freshness check verifies generated JSON, CSV, and audit output. A browser interaction pass also verified search, pagination, empty-result reset, platform filtering, duplicate grouping, query persistence, detail deep links, install target selection, help, overflow at all three widths, and absence of console exceptions.
+
+The website has no runtime dependencies. Skill text is escaped or assigned using `textContent`, including the raw instruction viewer; Markdown HTML is never executed. Local navigation uses URL query parameters and hash links so static hosts need no rewrite rules. Loading failure, empty search results, pagination, native modal keyboard behavior, and clipboard failure have explicit handling.
+
+Limitations: compatibility and topic labels are inferred and can be corrected with reviewed overrides. The raw Markdown instruction viewer favors faithful source text over rich rendering. Readability and layout were reviewed visually, but this is not a comprehensive accessibility certification.
