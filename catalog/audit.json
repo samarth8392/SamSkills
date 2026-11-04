@@ -1,8 +1,8 @@
 {
-  "totalSkills": 247,
+  "totalSkills": 248,
   "classifications": {
     "Claude-oriented": 3,
-    "Model-agnostic": 235,
+    "Model-agnostic": 236,
     "Multi-platform": 8,
     "OpenAI / Codex-oriented": 1
   },
@@ -15,7 +15,7 @@
     "Life sciences & medicine": 11,
     "ML training & models": 105,
     "R & Shiny": 19,
-    "Research & writing": 34
+    "Research & writing": 35
   },
   "duplicateNames": [
     [
