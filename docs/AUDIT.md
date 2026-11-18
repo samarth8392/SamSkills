@@ -2,7 +2,7 @@
 
 Static structural audit of every SKILL.md. Does not execute skills, validate external APIs, or certify licenses or runtime compatibility.
 
-- Skill folders indexed: **248**
+- Skill folders indexed: **249**
 - Remaining symlinks: **0**
 - Duplicate declared-name groups: **45**
 - Identical SKILL.md groups: **45**
@@ -12,7 +12,7 @@ Static structural audit of every SKILL.md. Does not execute skills, validate ext
 | Classification | Count |
 | --- | ---: |
 | Claude-oriented | 3 |
-| Model-agnostic | 236 |
+| Model-agnostic | 237 |
 | Multi-platform | 8 |
 | OpenAI / Codex-oriented | 1 |
 

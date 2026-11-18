@@ -1,15 +1,15 @@
 {
-  "totalSkills": 248,
+  "totalSkills": 249,
   "classifications": {
     "Claude-oriented": 3,
-    "Model-agnostic": 236,
+    "Model-agnostic": 237,
     "Multi-platform": 8,
     "OpenAI / Codex-oriented": 1
   },
   "categories": {
     "Agent workflows": 13,
     "Data & retrieval": 9,
-    "Design & documents": 29,
+    "Design & documents": 30,
     "Engineering & tools": 25,
     "General tools": 2,
     "Life sciences & medicine": 11,
